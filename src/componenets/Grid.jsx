@@ -54,9 +54,6 @@ const Grid = (props) => {
         return () => clearInterval(interval)
     }, [isActive, seconds])
 
-    // ***************************************** Timer ********************************************
-
-
     // ************************************* Color Handler *****************************************
 
     const [color, setColor] = useState('black')
@@ -64,24 +61,6 @@ const Grid = (props) => {
     const colorHandler = (color) => {
         setColor(color)
     }
-
-    // ************************************sets the grid size ************************************************
-
-    const numRows = 30
-    const numCols = 30
-
-    // used for neighbor checking
-    const operations = [
-        [0, 1],
-        [0, -1],
-        [1, -1],
-        [-1, 1],
-        [1, 1],
-        [-1, -1],
-        [1, 0],
-        [-1, 0],
-    ]
-
     // **************************************** run button fuctions ************************************************
 
     const [running, setRunning] = useState(false)
@@ -106,8 +85,23 @@ const Grid = (props) => {
     const [play] = useSound(popSfx, { volume: volumeRef.current })
 
 
+    // ************************************sets the grid size ************************************************
 
-    // ***************************************** Sound  ********************************************
+    const numRows = 30
+    const numCols = 30
+
+    // used for neighbor checking
+    const operations = [
+        [0, 1],
+        [0, -1],
+        [1, -1],
+        [-1, 1],
+        [1, 1],
+        [-1, -1],
+        [1, 0],
+        [-1, 0],
+    ]
+
 
     // ******************************************** Simulation Handler ****************************************
     const runSimulation = useCallback(() => {
@@ -175,12 +169,11 @@ const Grid = (props) => {
             alignItems: 'center',
         }}>
             {/* ************************************** Timer ************************************** */}
-
             <div>
                 <section style={{fontSize:'20px', margin:'10px',}}>This Simulation has lasted:</section>
                 <section>{hours.toString().padStart(2, 0)}:{minutes.toString().padStart(2, 0)}:{seconds.toString().padStart(2, 0)}</section>
             </div>
-
+            {/* ************************************** Color Options ************************************** */}
             <div style={{
                     // outline: '2px solid green',
                     display: 'flex',
@@ -214,6 +207,8 @@ const Grid = (props) => {
                         ))
                     }
                 </div>
+
+                {/* ********************************** Speed and Volume Sliders **************************************** */}
                 <div style={{
                         // outline: '2px solid red',
                         margin: '10px',
@@ -238,7 +233,7 @@ const Grid = (props) => {
                 </div>
 
             </div>
-            {/* ********************************** Buttons/Customization **************************************** */}
+            {/* ********************************** Grid Buttons **************************************** */}
             <div style={{
                 // outline: '2px solid purple',
                 display: 'flex',
