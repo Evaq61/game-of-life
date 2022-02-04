@@ -1,70 +1,41 @@
-# Getting Started with Create React App
+# Conway's Game of Life MERN Project
+- This was a final project for Coding Dojo's MERN Stack, using React and JavaScript languages
+- The project's goal was to make an app-like site, aimed at special needs children as a way to visually stimulate them. 
+- Idea was given to me by my mother who works with special needs kids and told me they often use apps that function simialr to this, anything that can get them distracted and calm down
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+# First make a react project
+- no server needed for this project currently, just the client front end
+```
+npx create-react-app client
+```
+# Installation
+- We will need to install immer for a 'produce' function and a 'current' function
+- both needed for the Conway's Game of Life Grid building
+```
+npm install immer
+```
+- We will also want useSound Hooks if we want to add in some sound effects
+- disclaimer: I find this hook set to be a little glitchy and won't play the sounds 100% of the time, mostly issues in loop like code
+```
+npm install use-sound
+```
+# Basic Run down
+- Most of the functions can be done with useState, useEffect and a lot of if checks
+- You can write all the code in 1 file if you choose, but it ends up being a lot for just 1 page
+- I personally made multiple components to try and lighten the code, but considering everything is built off the grid; that file ended up being more of the main container for the project
 
-## Available Scripts
+# Views
+- Main view: Conatains the Grid Componenet
 
-In the project directory, you can run:
+# Components
+- Grid: Basically your main container with all the other components and their logic
+- ClearButton: Clears the Grid
+- ColorOptions: Sets the buttons and inputs to chagne to default color of the grid simuation
+- RandomButton: Renders the Grid with random squares for a random simualtion
+- RunButton: Starts and Stops the simualtion
+- SoundButton: This isn't needed but I left it in for a misc. sound effect. It was also good for testing the sound itself to see if it was still working in general
+- SpeedBar: A slider to set the simulation speed
 
-### `npm start`
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
 
-The page will reload when you make changes.\
-You may also see any lint errors in the console.
 
-### `npm test`
-
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
-
-### `npm run build`
-
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
-
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
-
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
-
-### `npm run eject`
-
-**Note: this is a one-way operation. Once you `eject`, you can't go back!**
-
-If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
-
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
-
-You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
-
-## Learn More
-
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
-
-To learn React, check out the [React documentation](https://reactjs.org/).
-
-### Code Splitting
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
-
-### Analyzing the Bundle Size
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
-
-### Making a Progressive Web App
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
-
-### Advanced Configuration
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
-
-### Deployment
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
-
-### `npm run build` fails to minify
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
